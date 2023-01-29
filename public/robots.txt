@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bomberg.io/sitemap-index.xml
