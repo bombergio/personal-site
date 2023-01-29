@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root {
+  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+  --font-size-xl: clamp(2rem, 1vw + 1.2rem, 2.4rem);
+  --font-serif: 'EB Garamond', serif;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-serif);
+}
+
+main {
+  margin: auto;
+  padding: 1em;
+  max-width: 140ch;
+}
