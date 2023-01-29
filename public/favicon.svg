@@ -1,13 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a2 2 0 0 0 1.38-1.4l3.22-11.66a.5.5 0 0 1 .96 0l3.22 11.67a2 2 0 0 0 1.38 1.39l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
-  <path fill="url(#gradient)" d="M18 28a7.63 7.63 0 0 1-5-2c-1.4 2.1-.35 4.35.6 5.55.14.17.41.07.47-.15.44-1.8 2.93-1.22 2.93.6 0 2.28.87 3.4 1.72 3.81.34.16.59-.2.49-.56-.31-1.05-.29-2.46 1.29-3.25 3-1.5 3.17-4.83 2.5-6-.67.67-2.6 2-5 2Z"/>
-  <defs>
-    <linearGradient id="gradient" x1="16" x2="16" y1="32" y2="24" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#000"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-	<style>
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="168.733 89.02 162.197 182.356" xmlns="http://www.w3.org/2000/svg">
+  <g id="root" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <rect id="background.primary" fill="#ffffff" width="162.255" height="185.281" style="" y="87.908" x="168.646"/>
+    <rect id="frame.secondary" x="163" y="94" width="175" height="175" display="none" fill="#303841"/>
+    <svg width="175" height="175" viewBox="0 0 175 175" version="1.1" id="svg_frame.secondary" x="163" y="94" fill="#303841">
+      <g id="Page-1" stroke="#303841" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="frame.secondary" fill="#303841" points="87 0 162 43.75 162 131.25 87 175 12 131.25 12 43.75"/>
+      </g>
+    </svg>
+    <path d="M178.443 329.438l134.543 -247.05l0.575 -1.056l-2.086 -1.164l-0.574 1.056l-134.544 247.05l-0.575 1.056l2.086 1.164l0.575 -1.056zm71.439 0l134.543 -247.05l0.575 -1.056l-2.085 -1.164l-0.575 1.056l-134.544 247.05l-0.575 1.056l2.086 1.164l0.575 -1.056zm-115.46 32.473l130.971 -279.59l0.51 -1.088l-2.151 -1.033l-0.51 1.089l-130.972 279.59l-0.51 1.088l2.151 1.033l0.51 -1.089zm192.725 -30.21l-209.554 -255.486l-0.76 -0.927l-1.833 1.54l0.76 0.927l209.555 255.487l0.76 0.927l1.833 -1.54l-0.76 -0.927zm42.926 -36.07l-200.03 -291.641l-0.679 -0.99l-1.956 1.374l0.68 0.99l200.029 291.641l0.679 0.99l1.956 -1.374l-0.68 -0.99z" id="shape.primary" fill="#ffffff"/>
+  </g>
+  <style>
     @media (prefers-color-scheme:dark){:root{filter:invert(100%)}}
   </style>
 </svg>

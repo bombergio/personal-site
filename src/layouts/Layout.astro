@@ -17,7 +17,6 @@ const { title, description, mainClass } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" type="text/css" href="/prism.css">
 		<meta name="generator" content={Astro.generator} />
 		<SEO
@@ -25,14 +24,16 @@ const { title, description, mainClass } = Astro.props;
       description={description}
       openGraph={{
         basic: {
-          title: 'Astro',
+          title: {title},
           type: 'website',
-          image: 'https://astro.build/assets/astro-logo.png',
-          url: 'https://astro.build',
+          image: '/favicon.svg',
         },
         image: {
-          alt: 'Astro Logo',
+          alt: 'Website Logo',
         }
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.svg" }],
       }}
     />
 	</head>
