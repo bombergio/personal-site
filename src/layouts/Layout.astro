@@ -8,9 +8,11 @@ export interface Props {
   title: string;
   description: string;
   mainClass: string;
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 
-const { title, description, mainClass } = Astro.props;
+const { title, description, mainClass, ogImage, ogImageAlt } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en" class="dark">
@@ -26,10 +28,10 @@ const { title, description, mainClass } = Astro.props;
         basic: {
           title: title,
           type: 'website',
-          image: '/favicon.svg',
+          image: ogImage || '/favicon.svg',
         },
         image: {
-          alt: 'Website Logo',
+          alt: ogImageAlt || title,
         }
       }}
       extend={{
@@ -37,7 +39,7 @@ const { title, description, mainClass } = Astro.props;
       }}
     />
 	</head>
-	<body class="text-zinc-800 bg-orange-50 dark:bg-slate-900 dark:text-zinc-300 mx-auto my-auto max-w-3xl px-2 sm:px-5 xl:max-w-3xl xl:px-0 flex flex-col min-h-screen w-screen">
+	<body class="flex flex-col mx-auto my-auto max-w-3xl px-2 sm:px-5 xl:max-w-3xl xl:px-0 min-h-screen w-screen text-zinc-800 bg-orange-50 dark:bg-slate-900 dark:text-zinc-300">
     <Header />
     <main class={mainClass}>
       <slot />

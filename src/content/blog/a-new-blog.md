@@ -16,8 +16,9 @@ In addition, Astro version 2 released just now brought new features and improvem
 But the most important is that it is a static site generator, which means that it is fast and secure and it is easy to deploy. 
 I'm not a fan of JavaScript, but Astro is written in TypeScript, which is a good compromise for me. There is a native integration with the [Tailwind CSS](https://tailwindcss.com/) framework, which I like as well.
 
+As this website is static and the amount of client-side JS is kept to the absolute minimum, it is easy to get 100 points on performance from the Lighthouse.
 ## Hosting
-Astro allows the use of any static hosting provider, but I decided to use [Cloudflare](https://www.cloudflare.com/), because it is free and easy to use.
+Astro allows the use of any static hosting provider, but I decided to use [Cloudflare](https://www.cloudflare.com/), because it is free and extremely easy to use.
 
 By integrating Cloudflare Pages with the GitHub repository, I can deploy the fresh blog version just by committing the changes to the repository. No CI/CD setup is required. No infrastructure to manage. No servers to maintain. No worries.
 

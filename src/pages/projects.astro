@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import ProjectSummary from "../components/ProjectSummary.astro";
+import GithubIcon from "../components/GithubIcon.astro";
+
+const projects = await getCollection('projects');
+const tags = [... new Set(projects.map(project => (project.data.tags.map((tag: String) => tag.toLowerCase()))).flat())];
+const colors = ["red", "orange", "yellow", "green", "teal", "blue", "indigo", "purple", "pink"];
+const tagColors = new Array(tags.length).fill(colors).flat();
+const tagKeys = Object.fromEntries(tags.map((value, index) => [value, tagColors[index]]));
+---
+<Layout
+  title="Daniils Kostornijs projects"
+  description="A list of some of Daniils Kostornijs projects"
+  mainClass="items-top mt-5 min-w-1/2 flex flex-col h-full">
+  <h2 class="border-b border-black dark:border-zinc-400 pb-3">Some of my projects</h2>
+  <ul class="pt-2">
+    {projects.map(project =>
+      <li class="pb-4">
+        <a href={project.data.link}>
+          <h3 class="underline underline-offset-2 font-medium">{project.data.title}</h3>
+        </a>
+        {project.data.source && <div class="w-5 py-2"><GithubIcon url={project.data.source}/></div>}
+        <ProjectSummary props={project}/>
+        <div class="flex flex-row flex-wrap gap-y-2 pt-1">
+          {project.data.tags.map((tag: String) => {
+            const tagColor: String = tagKeys[tag.toLowerCase()];
+            return <span class={`px-2 py-1 mr-2 bg-${tagColor}-500 bg-${tagColor}-800 rounded-2xl text-xs font-medium`}>{tag}</span>
+            }
+          )}
+        </div>
+      </li>
+    )}
+  </ul>
+</Layout>

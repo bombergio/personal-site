@@ -1,0 +1,9 @@
+---
+export interface Props {
+  props: any;
+}
+
+const { props } = Astro.props;
+const { Content } = await props.render();
+---
+<Content/>

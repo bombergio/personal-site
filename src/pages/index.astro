@@ -3,18 +3,22 @@ import Layout from "../layouts/Layout.astro";
 import Social from "../components/Social.astro";
 import BlogPosts from "../components/BlogPosts.astro";
 import { Image } from '@astrojs/image/components';
+import Photo from "../assets/photo.jpg";
 ---
-<Layout title="Daniils Kostornijs website"
+<Layout
+  title="Daniils Kostornijs website"
   description="Hey, I am Daniils Kostornijs. I am a seasoned DevOps and Cloud hands-on architect."
-  mainClass="flex flex-col items-center justify-center h-full">
-  <div class="md:mb-10 items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
-    <div class="flex flex-col items-center space-x-2 pt-8">
-      <Image src={import("../assets/photo.jpg")} class="rounded-full md:mt-5" width={200} height={200} alt="Photo of Daniils Kostornijs" />
-      <div class="hover:text-primary-600 dark:hover:text-primary-400 flex space-x-3 pt-6">
+  mainClass="flex flex-col items-center justify-center h-full"
+  ogImage="../assets/photo.jpg"
+  ogImageAlt="Photo of Daniils Kostornijs">
+  <div class="grid grid-cols-1 md:grid-cols-3 sm:mb-10 items-center md:items-start space-y-2  md:gap-x-8 md:space-y-0">
+    <div class="flex flex-col items-center place-self-center space-x-0 w-48 h-48 md:w-auto md:h-auto mb-8 md:mb-0">
+      <Image src={Photo} class="rounded-full md:mt-5" alt="Photo of Daniils Kostornijs" />
+      <div class="flex space-x-3 pt-6">
         <Social size="6"/>
       </div>
     </div>
-    <div class="pt-8 pb-8 xl:col-span-2 prose prose-zinc dark:prose-invert">
+    <div class="pt-8 pb-8 md:col-span-2 prose prose-zinc dark:prose-invert">
       <h1>Hey, I am Daniils</h1>
       <p>
         Welcome to my space, where I'll share my thought and experience in the area of DevOps and Cloud operation.
@@ -23,7 +27,7 @@ import { Image } from '@astrojs/image/components';
       <p>Thank you for stopping by!</p>
     </div>
   </div>
-  <div class="min-w-1/2 flex flex-col h-full">
+  <div class="flex flex-col min-w-1/2 h-full">
     <h2 class="border-b border-black dark:border-zinc-400 pb-3">Recent Blog Posts</h2>
     <BlogPosts postsCount={3}/>
   </div>

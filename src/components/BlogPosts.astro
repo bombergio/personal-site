@@ -15,7 +15,7 @@ const finalBlogPosts = postsCount ? sortedBlogPosts.slice(0, postsCount) : sorte
     <li class="sm:grid sm:grid-rows-3 sm:grid-flow-col sm:auto-cols-fr pb-4">
       <p class="row-span-3 pt-2 text-zinc-600 dark:text-zinc-400">
         {dateToHuman(post.data.date)}</p>
-      <a class="col-span-2" href={`/blog/${post.slug}`}><h3>{post.data.title}</h3></a>
+      <a class="col-span-2" href={`/blog/${post.slug}`}><h3 class="underline underline-offset-2 font-medium">{post.data.title}</h3></a>
       <p class="row-span-2 col-span-2">{post.data.summary}</p>
     </li>
   )}
