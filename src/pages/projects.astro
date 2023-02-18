@@ -6,9 +6,12 @@ import GithubIcon from "../components/GithubIcon.astro";
 
 const projects = await getCollection('projects');
 const tags = [... new Set(projects.map(project => (project.data.tags.map((tag: String) => tag.toLowerCase()))).flat())];
-const colors = ["red", "orange", "yellow", "green", "teal", "blue", "indigo", "purple", "pink"];
+const colors = ["bg-red-200", "bg-indigo-200", "bg-yellow-200", "bg-green-200", "bg-teal-200", "bg-blue-200",  "bg-orange-200", "bg-purple-200", "bg-pink-200"];
+const darkColors = ["dark:bg-red-500", "dark:bg-indigo-500", "dark:bg-yellow-500", "dark:bg-green-500", "dark:bg-teal-500", "dark:bg-blue-500",  "dark:bg-orange-500", "dark:bg-purple-500", "dark:bg-pink-500"];
 const tagColors = new Array(tags.length).fill(colors).flat();
-const tagKeys = Object.fromEntries(tags.map((value, index) => [value, tagColors[index]]));
+const darkTagColors = new Array(tags.length).fill(darkColors).flat();
+const tagKeys = Object.fromEntries(tags.map((value, index) => [value, {normal: tagColors[index], dark: darkTagColors[index]}]));
+console.log(tagKeys);
 ---
 <Layout
   title="Daniils Kostornijs projects"
@@ -23,11 +26,11 @@ const tagKeys = Object.fromEntries(tags.map((value, index) => [value, tagColors[
         </a>
         {project.data.source && <div class="w-5 py-2"><GithubIcon url={project.data.source}/></div>}
         <ProjectSummary props={project}/>
-        <div class="flex flex-row flex-wrap gap-y-2 pt-1">
-          {project.data.tags.map((tag: String) => {
-            const tagColor: String = tagKeys[tag.toLowerCase()];
-            return <span class={`px-2 py-1 mr-2 bg-${tagColor}-500 bg-${tagColor}-800 rounded-2xl text-xs font-medium`}>{tag}</span>
-            }
+        <div class="flex flex-row flex-wrap gap-y-2 pt-3">
+          {project.data.tags.map((tag) =>
+            <>
+              <div class={`px-2 py-0.5 mr-3 ${tagKeys[tag.toLowerCase()].normal} ${tagKeys[tag.toLowerCase()].dark} rounded-2xl text-xs dark:text-black`}>{tag}</div>
+            </>
           )}
         </div>
       </li>
