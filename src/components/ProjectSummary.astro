@@ -6,4 +6,6 @@ export interface Props {
 const { props } = Astro.props;
 const { Content } = await props.render();
 ---
-<Content/>
+<div class="pt-3 pb-10 prose prose-zinc dark:prose-invert">
+  <Content/>
+</div>
