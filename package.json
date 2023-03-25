@@ -10,18 +10,18 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "upgrade": "yarn upgrade-interactive --latest"
+    "upgrade": "npm-upgrade"
   },
   "dependencies": {
-    "@astrojs/image": "^0.16.1",
-    "@astrojs/mdx": "^0.18.1",
+    "@astrojs/image": "^0.16.2",
+    "@astrojs/mdx": "^0.18.2",
     "@astrojs/prism": "^2.1.1",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/tailwind": "^3.1.1",
     "@tailwindcss/typography": "^0.5.9",
-    "astro": "^2.1.3",
-    "astro-seo": "^0.7.1",
-    "sharp": "^0.31.3",
+    "astro": "^2.1.7",
+    "astro-seo": "^0.7.2",
+    "sharp": "^0.32.0",
     "tailwindcss": "^3.2.7"
   }
 }
