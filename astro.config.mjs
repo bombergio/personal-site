@@ -15,6 +15,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://bomberg.io',
+  trailingSlash: 'never',
   integrations: [tailwind(), mdx({
     syntaxHighlight: 'prism'
   }), image({
