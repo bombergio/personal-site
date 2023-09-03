@@ -3,16 +3,16 @@ title: Using no-code automation for the daily routine
 summary: 'How to use the n8n no-code automation tool to simplify some of your daily routine tasks'
 date: 2023-01-29
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import { Prism } from '@astrojs/prism';
 
 ## Why automation?
-One of the companies I was working for previously, asked employees to check in on daily basis at a [Coda](https://coda.io) table. 
+One of the companies I was working for previously, asked employees to check in daily at a [Coda](https://coda.io) table.
 Coda is a platform that helps users create and manage websites through a visual editor, templates, and integrations with other tools.
-In my case, it was a fresh table every day where I have to insert the row and check if I'm working from home or the office or if I'm sick.
-As it was Covid time and everyone continuously was working from the home, it sounded like a perfect case for automation.
+In my case, it was a fresh table every day where I had to insert the row and check if I was working from home or the office or if I was sick.
+As it was COVID time and everyone continuously was working from home, it sounded like a perfect case for automation.
 On top of that, another automation idea was to greet my teammates in a Slack channel with a random greeting every day.
-Automating the way to interact with your colleagues may sound weirdo, but just posting random greetings seemed fun to me.
+Automating the way to interact with your colleagues may sound weird, but just posting random greetings seemed fun to me.
 
 ## Choosing an automation tool
 While there are many automation SaaS platforms like [make.com](https://make.com), [zapier.com](https://zapier.com) or centenarians like [IFTTT](https://ifttt.com), I've decided to use self-hosted [n8n](https://n8n.io).
@@ -28,7 +28,7 @@ If you have a home lab machine (like me), the Docker container probably would be
 
 <Prism code={`docker run -d --rm --name n8n -p 5678:5678 -v ~/.n8n:/home/node/.n8n n8nio/n8n:latest`}/>
 
-Once a container is started, there is a fresh instance of n8n running that can get reached by opening [`http://localhost:5678`](http://localhost:5678) in the browser.
+Once a container is started, there is a fresh instance of n8n running that can be reached by opening [`http://localhost:5678`](http://localhost:5678) in the browser.
 The first time we start and open the n8n UI, we will be asked to create a new user. After that, we will be redirected to the main page.
 ## Google Sheets
 Google Sheets will be used to store the list of holidays and greetings. So as the very first step, we have to create a reference Google Sheet with two sheets:
@@ -75,7 +75,7 @@ Workflow with just a first node added looks like this:
 ### Step 2: Calculate epoch date
 Google Sheets return date in the epoch format (days since `01/01/1900`), so we need to write a little JavaScript code to convert today date to the epoch format.
 Select the **Code** node and paste the following JavaScript code:
-<Prism 
+<Prism
   lang="js"
   code={`var epoch = new Date("01/01/1900");
   var now = new Date();
@@ -98,7 +98,7 @@ Inside of Google Sheets:
 - For the *Credential for Google API* select the Google Service Account created earlier
 - Select `Sheet` as the *Resource*
 - Select `Lookup` as the *Operation*. We'll be looking up the value across the range of cells.
-- For the `Spreadsheet ID`, get the ID from the Google Sheet URL. E.g. `kjerijdn394mhj34--kj34fd534FDfsf43` from the 
+- For the `Spreadsheet ID`, get the ID from the Google Sheet URL. E.g. `kjerijdn394mhj34--kj34fd534FDfsf43` from the
 `https://docs.google.com/spreadsheets/d/kjerijdn394mhj34--kj34fd534FDfsf43/edit`
 - Use `A:A` as the *Range*, as our data is in the column `A` only.
 - *Data Start Row* is `1`
@@ -120,9 +120,9 @@ Until now if today's date was found in the Google Sheet, the workflow would cont
 
 Create a new **IF** node and connect `Google Sheet` to it.
 In `IF` node, add a new condition for the string, and paste this tiny JavaScript code in the Value 1 input as an expression:
-<Prism 
+<Prism
   lang="js"
-  code={`{{ $json["Date"] }}`} 
+  code={`{{ $json["Date"] }}`}
   class="max-w-screen-md"
 />
 For the operation, select **Is Not Empty**.
@@ -203,7 +203,7 @@ First, we have to create a workflow in the Slack app:
 This is the workflow:
 <Image src={import("../../assets/blog/using-automation-for-the-daily-routine/slack-workflow.jpg")} alt="Slack workflow" width={500} class="justify-self-center"/>
 
-Now, back in n8n, we are creating the **Webhook** node and attaching it to the output of the **Code** block from step 7. 
+Now, back in n8n, we are creating the **Webhook** node and attaching it to the output of the **Code** block from step 7.
 the following parameters have to be applied to the Webhook:
 - *Authentication* is `none`
 - `POST` for the *Request method*
